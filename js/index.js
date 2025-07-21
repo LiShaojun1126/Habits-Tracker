@@ -1,16 +1,21 @@
-const modal = document.getElementById('modal')
-const openBtn = document.getElementById('openModalBtn')
-const closeBtn = document.getElementById('closeModalBtn')
-const enterBtn = document.getElementById('enterModalBtn')
+import { addHabit } from './habitsList.js';
 
-openBtn.addEventListener('click', () => {
-  modal.classList.remove('hidden')
-})
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('modal');
+  const openModalBtn = document.getElementById('openModalBtn');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const enterBtn = document.getElementById('enterBtn');
 
-closeBtn.addEventListener('click', () => {
-  modal.classList.add('hidden')
-})
+  openModalBtn.addEventListener('click', () => {
+    modal.classList.remove('hidden');
+  });
 
-enterBtn.addEventListener('click', () => {
-    modal.classList.add('hidden')
-})
+  closeModalBtn.addEventListener('click', () => {
+    modal.classList.add('hidden');
+  });
+
+  enterBtn.addEventListener('click', () => {
+    modal.classList.add('hidden');
+    addHabit();
+  });
+});

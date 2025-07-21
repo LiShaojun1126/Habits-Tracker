@@ -13,3 +13,5 @@ function addHabit() {
     habitList.appendChild(li);
     habitInput.value = '';
 }
+
+export {addHabit};
