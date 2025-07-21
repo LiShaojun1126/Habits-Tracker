@@ -4,12 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habits Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
+    <script type = "module"src="js/index.js"></script>
+    <script type = "module"src="js/habitsList.js"></script>
 </head>
-<body>
-    <div>
-        <h1>Habits Tracker</h1>
+<body class="bg-gray-100 flex justify-center">
+      <div id="modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 backdrop-blur hidden">
+        <div class="max-w-md mx-auto bg-white rounded-xl shadow-md p-6 space-y-4">
+            <h2 class="text-xl font-semibold">Add one new habit</h2>
+            <div class="flex space-x-4 items-center justify-between"></div>
+                <input id="habitInput" type="text" placeholder="Enter a new habit" class="flex-1 px-3 py-2 border rounded">
+                <button onclick="addHabit()" id="enterBtn" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">OK</button>
+                <button id="closeModalBtn" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Close</button>
+            </div>
+        </div>
     </div>
+    <div class = "w-full max-w-[800px] p-4">
+        <div class="flex justify-between items-center rounded-lg">
+            <h1 class="text-4xl font-semibold text-gray-800">Habits Tracker</h1>
+            <div class="space-x-2">
+                <button id="openModalBtn" class="w-[30px] h-[30px] border-2 bg-white text-stone-950 rounded-full hover:bg-zinc-400 border border-black items-center justify-center">+</button>
+                <button id="darkMode" class="w-[30px] h-[30px] border-2 bg-white text-stone-950 rounded-full hover:bg-zinc-400 border border-black items-center justify-center">🌛</button>
+            </div>
+        </div>
+        <hr class="border-t-2 border-black my-4" />
+        <ul id="habitList" class="space-y-2">
+        </ul>
+
+    </div>
+    
 </body>
 </html>

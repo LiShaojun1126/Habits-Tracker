@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>Modal 示例</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* 背景模糊遮罩 */
+    .backdrop-blur {
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+  <!-- 触发按钮 -->
+  <button id="openModalBtn" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+    打开弹窗
+  </button>
+
+  <!-- 弹窗和遮罩 -->
+  <div id="modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 backdrop-blur hidden">
+    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md p-6 space-y-4">
+      <h2 class="text-xl font-semibold">弹窗标题</h2>
+      <p>这里是弹窗内容，可以放文本、表单、按钮等。</p>
+      <div class="flex justify-end space-x-2">
+        <button id="closeModalBtn" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">关闭</button>
+        <button class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">确认</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal')
+    const openBtn = document.getElementById('openModalBtn')
+    const closeBtn = document.getElementById('closeModalBtn')
+
+    openBtn.addEventListener('click', () => {
+      modal.classList.remove('hidden')
+    })
+
+    closeBtn.addEventListener('click', () => {
+      modal.classList.add('hidden')
+    })
+
+    // 点击遮罩也关闭弹窗
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden')
+      }
+    })
+  </script>
+
+</body>
+</html>
